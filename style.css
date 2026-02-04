@@ -1,0 +1,89 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, sans-serif;
+}
+
+body{
+  background:linear-gradient(180deg,#7a1f3d,#a8325a);
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+}
+
+.screen{
+  min-height:100vh;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.screen.active{display:flex}
+
+/* LOCK */
+.lockBox{
+  background:#ffd1dc;
+  color:#7a1f3d;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+.lockBox input{
+  padding:10px;
+  width:200px;
+  margin:10px 0;
+  border-radius:10px;
+  border:none;
+}
+.lockBox button{
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#e63946;
+  color:#fff;
+}
+
+/* SLIDESHOW */
+#slideshow img{
+  width:85%;
+  max-width:320px;
+  border-radius:20px;
+  margin-top:20px;
+  animation:fadeZoom 2.5s infinite;
+}
+
+@keyframes fadeZoom{
+  0%{opacity:0;transform:scale(.95)}
+  50%{opacity:1;transform:scale(1)}
+  100%{opacity:0;transform:scale(1.05)}
+}
+
+/* COMPLIMENT */
+#complimentText{
+  font-size:1.2rem;
+  margin-top:20px;
+}
+
+/* BUTTONS */
+.btns{display:flex;gap:20px}
+button{
+  padding:15px 25px;
+  border:none;
+  border-radius:30px;
+  font-size:1rem;
+}
+#yesBtn{background:#ff4d6d;color:#fff}
+#noBtn{background:#c9184a;color:#fff;position:relative}
+
+/* FINAL */
+.finalBox,.dateBox{
+  background:#ffd1dc;
+  color:#7a1f3d;
+  padding:25px;
+  border-radius:20px;
+  margin:10px;
+  max-width:320px;
+}
