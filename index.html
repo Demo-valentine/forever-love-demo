@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forever Love ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="bgMusic" src="music.mp3" loop></audio>
+
+<!-- PASSWORD SCREEN -->
+<section id="lockScreen" class="screen active">
+  <div class="lockBox">
+    <h2>This page is locked ❤️</h2>
+    <input type="password" id="passwordInput" placeholder="Enter password">
+    <button onclick="checkPassword()">Unlock</button>
+    <p id="lockError"></p>
+  </div>
+</section>
+
+<!-- SLIDESHOW -->
+<section id="slideshow" class="screen">
+  <h1>For <span>Anjali ❤️</span></h1>
+  <img id="slideImg" src="img1.jpg">
+</section>
+
+<!-- COMPLIMENTS -->
+<section id="compliments" class="screen">
+  <h2>Before I ask you something…</h2>
+  <p id="complimentText"></p>
+</section>
+
+<!-- QUESTION -->
+<section id="question" class="screen">
+  <h2>Will you be my Valentine? 💖</h2>
+  <div class="btns">
+    <button id="yesBtn">YES ❤️</button>
+    <button id="noBtn">NO 🙈</button>
+  </div>
+</section>
+
+<!-- FINAL MESSAGE -->
+<section id="final" class="screen">
+  <div class="finalBox">
+    <h2>🎁 A Secret Just For You</h2>
+    <p>
+      Anjali ❤️<br><br>
+      I knew you would say yes.<br>
+      This wasn’t just a question,<br>
+      it was my heart asking yours 💕<br><br>
+      – Hardik
+    </p>
+  </div>
+
+  <div class="dateBox">
+    <h3>💑 Our First Date</h3>
+    <p>
+      Place: Wherever you are happy<br>
+      Time: Whenever you are free<br>
+      Dress code: Your smile ❤️
+    </p>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
