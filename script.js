@@ -1,4 +1,5 @@
-const music=document.getElementById("music");
+const music = document.getElementById("music");
+music.volume = 0.8;
 
 function show(id){
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
@@ -7,9 +8,14 @@ function show(id){
 
 function unlock(){
   if(document.getElementById("pass").value==="anjali"){
-    music.play();
+    
+    // FORCE MUSIC PLAY (mobile safe)
+    music.currentTime = 0;
+    music.play().catch(()=>{});
+
     show("album");
     startAlbum();
+
   }else{
     document.getElementById("err").innerText="Wrong password 😌";
   }
@@ -72,3 +78,18 @@ document.getElementById("yes").onclick=()=>{
     document.getElementById("dateBox").classList.remove("hidden");
   },6000);
 };
+const heartContainer = document.createElement("div");
+heartContainer.className = "hearts-bg";
+document.body.appendChild(heartContainer);
+
+setInterval(()=>{
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.animationDuration = (5 + Math.random()*5) + "s";
+  heart.style.fontSize = (14 + Math.random()*20) + "px";
+  heartContainer.appendChild(heart);
+
+  setTimeout(()=>heart.remove(),10000);
+}, 400);
