@@ -1,5 +1,5 @@
 const music = document.getElementById("music");
-music.volume = 0.8;
+let musicStarted = false;
 
 function show(id){
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
@@ -7,17 +7,15 @@ function show(id){
 }
 
 function unlock(){
-  if(document.getElementById("pass").value==="anjali"){
-    
-    // FORCE MUSIC PLAY (mobile safe)
-    music.currentTime = 0;
-    music.play().catch(()=>{});
-
+  if(document.getElementById("pass").value === "anjali"){
     show("album");
     startAlbum();
 
-  }else{
-    document.getElementById("err").innerText="Wrong password 😌";
+    // one-time tap listener for music (GUARANTEED)
+    document.body.addEventListener("click", startMusicOnce, { once:true });
+
+  } else {
+    document.getElementById("err").innerText = "Wrong password 😌";
   }
 }
 
@@ -93,3 +91,11 @@ setInterval(()=>{
 
   setTimeout(()=>heart.remove(),10000);
 }, 400);
+function startMusicOnce(){
+  if(!musicStarted){
+    music.volume = 0.8;
+    music.play().then(()=>{
+      musicStarted = true;
+    }).catch(()=>{});
+  }
+}
