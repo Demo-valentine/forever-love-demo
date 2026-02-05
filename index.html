@@ -1,61 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Forever Love ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Forever Love ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<audio id="bgMusic" src="music.mp3" loop></audio>
+<audio id="music" src="music.mp3" loop></audio>
 
-<!-- PASSWORD SCREEN -->
-<section id="lockScreen" class="screen active">
+<!-- BACKGROUND HEARTS -->
+<div class="hearts"></div>
+
+<!-- LOCK -->
+<section id="lock" class="screen active">
   <div class="lockBox">
-    <h2>This page is locked ❤️</h2>
-    <input type="password" id="passwordInput" placeholder="Enter password">
-    <button onclick="checkPassword()">Unlock</button>
-    <p id="lockError"></p>
+    <h2>This moment is private ❤️</h2>
+    <p>Only one heart can unlock what comes next</p>
+    <input id="pass" type="password" placeholder="Enter password">
+    <button onclick="unlock()">Unlock</button>
+    <span id="err"></span>
   </div>
 </section>
 
-<!-- SLIDESHOW -->
-<section id="slideshow" class="screen">
-  <h1>For <span>Anjali ❤️</span></h1>
-  <img id="slideImg" src="img1.jpg">
+<!-- ALBUM -->
+<section id="album" class="screen">
+  <h1>For Anjali ❤️</h1>
+  <p class="subtitle">Every memory with you feels special</p>
+  <img id="albumImg" src="img1.jpg">
 </section>
 
-<!-- COMPLIMENTS -->
-<section id="compliments" class="screen">
-  <h2>Before I ask you something…</h2>
-  <p id="complimentText"></p>
+<!-- COMPLIMENT -->
+<section id="compliment" class="screen">
+  <h2>
+    Before I ask you something…<br>
+    let me tell you why you matter 💖
+  </h2>
+  <div class="giftBox">
+    <p id="compText"></p>
+  </div>
 </section>
 
 <!-- QUESTION -->
 <section id="question" class="screen">
-  <h2>Will you be my Valentine? 💖</h2>
-  <div class="btns">
-    <button id="yesBtn">YES ❤️</button>
-    <button id="noBtn">NO 🙈</button>
+  <h2>Will you be my Valentine? 💕</h2>
+  <div class="buttons">
+    <button id="yes">YES ❤️</button>
+    <button id="no">NO 🙈</button>
   </div>
 </section>
 
-<!-- FINAL MESSAGE -->
-<section id="final" class="screen">
-  <div class="finalBox">
-    <h2>🎁 A Secret Just For You</h2>
+<!-- CELEBRATION -->
+<section id="celebrate" class="screen">
+  <div class="gift">
+    🎁
+  </div>
+  <div id="message" class="hidden">
+    <h2>Anjali ❤️</h2>
     <p>
-      Anjali ❤️<br><br>
-      I knew you would say yes.<br>
+      I knew it.<br>
       This wasn’t just a question,<br>
       it was my heart asking yours 💕<br><br>
       – Hardik
     </p>
   </div>
 
-  <div class="dateBox">
-    <h3>💑 Our First Date</h3>
+  <div id="dateBox" class="hidden">
+    <h3>💌 Our First Date</h3>
     <p>
       Place: Wherever you are happy<br>
       Time: Whenever you are free<br>
