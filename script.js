@@ -1,73 +1,74 @@
-const music=document.getElementById("bgMusic");
-document.addEventListener("click",()=>music.play(),{once:true});
+const music=document.getElementById("music");
 
-// PASSWORD
-function checkPassword(){
-  const val=document.getElementById("passwordInput").value;
-  if(val==="anjali"){
-    show("slideshow");
-    startSlideshow();
-  }else{
-    document.getElementById("lockError").innerText="Wrong password 😌";
-  }
-}
-
-// SCREEN SWITCH
 function show(id){
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 }
 
-// SLIDESHOW
+function unlock(){
+  if(document.getElementById("pass").value==="anjali"){
+    music.play();
+    show("album");
+    startAlbum();
+  }else{
+    document.getElementById("err").innerText="Wrong password 😌";
+  }
+}
+
+/* ALBUM */
 const imgs=["img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg","img7.jpg","img8.jpg"];
 let i=0;
-function startSlideshow(){
-  const img=document.getElementById("slideImg");
-  const interval=setInterval(()=>{
+function startAlbum(){
+  const img=document.getElementById("albumImg");
+  const albumInt=setInterval(()=>{
     i++;
     if(i<imgs.length){
       img.src=imgs[i];
     }else{
-      clearInterval(interval);
+      clearInterval(albumInt);
       startCompliments();
     }
   },2500);
 }
 
-// COMPLIMENTS
+/* COMPLIMENTS */
 const compliments=[
   "Your smile feels like home ❤️",
-  "You make ordinary days special",
+  "You make ordinary days beautiful",
   "Your laugh is my favorite sound",
-  "You light up every room",
-  "You make my heart feel safe",
-  "You are effortlessly beautiful",
-  "With you everything feels softer",
+  "You light up my world",
+  "You are my calm & chaos",
   "You feel like destiny 💕"
 ];
 let c=0;
 function startCompliments(){
-  show("compliments");
-  const text=document.getElementById("complimentText");
-  const interval=setInterval(()=>{
+  show("compliment");
+  const text=document.getElementById("compText");
+  const compInt=setInterval(()=>{
     text.innerText=compliments[c];
     c++;
     if(c===compliments.length){
-      clearInterval(interval);
+      clearInterval(compInt);
       setTimeout(()=>show("question"),2000);
     }
   },3000);
 }
 
-// NO BUTTON GAME
-const noBtn=document.getElementById("noBtn");
-noBtn.onclick=()=>{
-  navigator.vibrate?.(200);
-  noBtn.style.left=Math.random()*200-100+"px";
-  noBtn.style.top=Math.random()*200-100+"px";
+/* NO BUTTON */
+const no=document.getElementById("no");
+no.onclick=()=>{
+  navigator.vibrate?.(150);
+  no.style.left=Math.random()*200+"px";
+  no.style.top=Math.random()*200+"px";
 };
 
-// YES
-document.getElementById("yesBtn").onclick=()=>{
-  show("final");
+/* YES */
+document.getElementById("yes").onclick=()=>{
+  show("celebrate");
+  setTimeout(()=>{
+    document.getElementById("message").classList.remove("hidden");
+  },2000);
+  setTimeout(()=>{
+    document.getElementById("dateBox").classList.remove("hidden");
+  },6000);
 };
